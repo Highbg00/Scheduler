@@ -7,9 +7,9 @@ public interface MemberService {
     boolean member_social_email(UserDTO vo);
 
     // 소셜 회원 정보 신규 저장 (C)
-    boolean member_social_insert(UserDTO vo);
+    void member_social_insert(UserDTO vo);
 
     // 소셜 회원 정보 변경 저장 (U)
-    boolean member_social_update(UserDTO  vo);
+    void member_social_update(UserDTO  vo);
 
 }

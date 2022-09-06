@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.zerock.scheduler.repository.UserRepository">
+    <select id="social_email" resultType="integer">
+        select count(*) from user
+        where ${social_type} = #{social_email}
+    </select>
+
+    <update id="social_update">
+        update member set name=#{name}, gender=#{gender}
+        where ${social_type} = #{social_email}
+    </update>
+
+    <insert id="social_insert">
+        insert into member (id, name, gender, ${social_type})
+        values (#{id}, #{name}, #{gender}, #{social_email})
+    </insert>
+
+</mapper>

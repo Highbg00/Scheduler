@@ -1,12 +1,18 @@
 package org.zerock.scheduler.repository;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.zerock.scheduler.entity.User;
+import org.zerock.scheduler.member.UserDTO;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    /* OAuth */
-    Optional<User> findByEmail(String email);
+@Mapper
+public interface UserRepository {
 
+    int member_social_email(UserDTO vo);
+
+    void member_social_insert(UserDTO vo);
+
+    void member_social_update(UserDTO vo);
 }

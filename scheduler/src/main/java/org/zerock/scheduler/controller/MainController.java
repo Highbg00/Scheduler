@@ -32,7 +32,7 @@ public class MainController {
 
         log.info("list.....");
 
-        return "/scheduler/list";
+        return "/scheduler/main";
     }
 
     @GetMapping ("/naverLogin")
@@ -102,6 +102,7 @@ public class MainController {
             UserDTO vo = new UserDTO();
             // 소셜 로그인 형태를 담음.
 
+            vo.setSocial_type("naver");
             vo.setId(json.getString("id"));
             vo.setEmail(json.getString("email"));
             vo.setUsername(json.getString("name"));
