@@ -1,9 +1,10 @@
 package org.zerock.scheduler.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Comment;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 @Entity

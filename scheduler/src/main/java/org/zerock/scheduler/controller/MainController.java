@@ -2,6 +2,7 @@ package org.zerock.scheduler.controller;
 
 import lombok.extern.log4j.Log4j2;
 
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,12 +28,12 @@ public class MainController {
 
 
 
-    @GetMapping({"/","/list"})
+    @GetMapping("/")
     public String list(){
 
         log.info("list.....");
 
-        return "/scheduler/main";
+        return "main";
     }
 
     @GetMapping ("/naverLogin")
