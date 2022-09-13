@@ -11,17 +11,17 @@ public class MemberServiceImpl implements MemberService{
     UserRepository dao;
 
     @Override
-    public boolean member_social_email(UserDTO vo) {
-        return dao.member_social_email(vo) == 0 ? true : false;
+    public boolean social_email(UserDTO vo) {
+        return dao.social_email(vo) == 0 ? false : true;
     }
 
     @Override
-    public void member_social_insert(UserDTO vo) {
-        dao.member_social_insert(vo);
+    public void social_insert(UserDTO vo) {
+        dao.social_insert(vo);
     }
 
     @Override
-    public void member_social_update(UserDTO vo) {
-        dao.member_social_update(vo);
+    public void social_update(UserDTO vo) {
+        dao.social_update(vo);
     }
 }

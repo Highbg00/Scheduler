@@ -6,9 +6,9 @@ import org.zerock.scheduler.member.UserDTO;
 @Mapper
 public interface UserRepository {
 
-    int member_social_email(UserDTO vo);
+    int social_email(UserDTO vo);
 
-    void member_social_insert(UserDTO vo);
+    void social_insert(UserDTO vo);
 
-    void member_social_update(UserDTO vo);
+    void social_update(UserDTO vo);
 }

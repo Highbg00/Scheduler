@@ -33,7 +33,7 @@ public class MainController {
 
         log.info("list.....");
 
-        return "main";
+        return "/scheduler/main";
     }
 
     @GetMapping ("/naverLogin")
@@ -54,7 +54,7 @@ public class MainController {
         StringBuffer url = new StringBuffer("https://nid.naver.com/oauth2.0/authorize?response_type=code");
         url.append("&client_id=").append(naver_client_id);
         url.append("&state=").append(state);
-        url.append("&redirect_uri=http://localhost/clcd/navercallback");
+        url.append("&redirect_uri=http://localhost:8080/navercallback");
         System.out.println(url.toString());
         return "redirect:" + url.toString();
 
@@ -106,15 +106,15 @@ public class MainController {
             vo.setSocial_type("naver");
             vo.setId(json.getString("id"));
             vo.setEmail(json.getString("email"));
-            vo.setUsername(json.getString("name"));
+            vo.setName(json.getString("name"));
             vo.setGender(json.has("gender") && json.getString("gender").equals("F") ? "여" : "남");
 
             // 네이버 최초 로그인인 경우 회원 정보 저장 (insert)
             // 네비어 로그인 이력이 있어 회원정보가 있다면 변경 저장
-            if ( service.member_social_email(vo) )
-                service.member_social_update(vo);
+            if ( service.social_email(vo) )
+                service.social_update(vo);
             else
-                service.member_social_insert(vo);
+                service.social_insert(vo);
 
             // vo 에 담은 데이터를 session 의 loginInfo 에 담음
             session.setAttribute("loginInfo", vo);

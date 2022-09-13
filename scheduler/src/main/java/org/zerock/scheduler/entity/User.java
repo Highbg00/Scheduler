@@ -25,15 +25,18 @@ public class User extends BaseEntity{
     private String email;
 
     @Column(nullable = false, length = 30, unique = true)
-    private String username;
-
-    @Column(nullable = false, unique = true)
-    private String nickname;
+    private String name;
 
     @Column(length = 100)
     private String gender;
 
     @Column(length = 50)
     private String social_type;
+
+    @Column(length = 100)
+    private String naver;
+
+    @Column(length = 100)
+    private String kakao;
 
 }
