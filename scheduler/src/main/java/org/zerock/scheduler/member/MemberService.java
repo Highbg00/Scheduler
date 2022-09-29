@@ -1,7 +1,9 @@
 package org.zerock.scheduler.member;
 
 
+import org.springframework.stereotype.Service;
 
+@Service
 public interface MemberService {
 
     // 소셜 회원 정부 존재 여부 (R)
