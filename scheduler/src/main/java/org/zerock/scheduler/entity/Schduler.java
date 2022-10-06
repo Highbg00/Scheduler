@@ -2,9 +2,8 @@ package org.zerock.scheduler.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -17,11 +16,25 @@ public class Schduler extends BaseEntity{
     
     //데이터 테이블에 들어갈 데이터 칼럼들을 생성하는 곳
     @Id
-    private String email;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 11)
+    private int schedule_idx;
 
-    @Column(length = 100)
-    private String pw;
+    @Column(length = 11)
+    private int schedule_num;
+
+    @Column(length = 45)
+    private String schedule_subject;
+
+    @Column(length = 45)
+    private String schedule_desc;
+
+    @Column
+    private Date schedule_date;
+
+    @Column(length = 2)
+    private String schedule_share;
 
     @Column(length = 10)
-    private String gender;
+    private String schedule_myc;
 }
