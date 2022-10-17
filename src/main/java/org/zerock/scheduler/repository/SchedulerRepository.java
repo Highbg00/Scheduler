@@ -1,11 +1,8 @@
 package org.zerock.scheduler.repository;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.zerock.scheduler.calendar.ScheduleDto;
 import org.zerock.scheduler.data.DateData;
-import org.zerock.scheduler.entity.Schduler;
 
 import java.util.ArrayList;
 
