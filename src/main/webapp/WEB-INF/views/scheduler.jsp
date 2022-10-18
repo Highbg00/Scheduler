@@ -17,12 +17,20 @@
     <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
     <!-- jquery datepicker 끝 -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <link href="${path}/resources/css/main.css" rel="stylesheet"
-          type="text/css">
-    <script src="${path}/resources/js/board.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script type="text/javaScript" language="javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script
             src="https://www.lgkids.co.kr/es_all/plugins/jscolor-2.0.5/jscolor.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#popbutton").click(function(){
+                $('div.normal_move_board_modal').modal();
+            })
+        })
+    </script>
     <style TYPE="text/css">
 
         /* 배경색 */
@@ -38,6 +46,10 @@
             scrollbar-darkshadow-color: #FFFFFF;
             scrollbar-track-color: #FFFFFF;
             scrollbar-arrow-color: #bbbbbb;
+            margin-left: "0px";
+            margin-right: "0px";
+            margin-top: "0px";
+            margin-bottom: "0px";
         }
 
         td {
@@ -579,8 +591,8 @@
                     onclick="javascript:location.href='/calendar.do'"
                     style="height: 30px; width: 80px;">Today</button>
             <button type="button"
-                    class="buttonstyle board_move openMask_board_move pointer"
-                    style="height: 30px; width: 130px;">Add Schedule</button>
+                    class="buttonstyle board_move open Mask_board_move pointer"
+                    style="height: 30px; width: 130px;" id="popbutton">Add Schedule</button>
         </div>
         <table class="calendar_body">
 
@@ -599,9 +611,9 @@
             <tr>
                 <c:forEach var="dateList" items="${dateList}"
                            varStatus="date_status">
-                    <c:choose>
-                        <c:when test="${dateList.value=='today'}">
-                            <c:if test="${date_status.index%7==0}">
+                <c:choose>
+                <c:when test="${dateList.value=='today'}">
+                <c:if test="${date_status.index%7==0}">
             <tr>
                 </c:if>
                 <td class="today">
@@ -622,7 +634,7 @@
                     <div class="date">
                         </c:otherwise>
                         </c:choose>
-                        ${dateList.date}
+                            ${dateList.date}
                     </div>
                     <div>
                         <!-- 달력에 일정 띄우고 클릭 시 수정/삭제 창 띄우는 코드 -->
@@ -646,9 +658,8 @@
         </table>
     </div>
 </form>
-
 <div id="mask_board_move"></div>
-<div class="normal_move_board_modal">
+<div class="normal_move_board_modal" id="normal_move_board_modal">
     <script>
         $(function() {
             $("#testDatepicker")
