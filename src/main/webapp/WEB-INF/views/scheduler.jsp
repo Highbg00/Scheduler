@@ -643,7 +643,7 @@
                                    varStatus="schedule_data_arr_status">
 
                             <a
-                                    href="/schedule_show?schedule_idx=${scheduleList.schedule_id}"
+                                    href="/schedule_show?schedule_idx=${scheduleList.schedule_idx}"
                                     onclick="window.open(this.href, '_blank', 'width=550,height=600,left=680%, top=200%, toolbars=no,scrollbars=no'); return false;"
                                     class="date_subject "
                                     style="color: ${scheduleList.schedule_mycolor}">${scheduleList.schedule_subject}</a>
@@ -706,6 +706,7 @@
             <input type="hidden" name="year" value="${today_info.search_year}" />
             <input type="hidden" name="month"
                    value="${today_info.search_month-1}" />
+
             <div class="contents">
                 <ul>
                     <li>

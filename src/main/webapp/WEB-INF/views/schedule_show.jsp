@@ -230,10 +230,13 @@
   <script type="text/javascript">
 
     if(${schedule_show.schedule_share}=="1")
-    document.getElementById("first_radio").checked = true;
+    {
+      document.getElementById("first_radio").checked = true;
+    }
     else
-    document.getElementById("second_radio").checked = true;
-
+    {
+      document.getElementById("second_radio").checked = true;
+    }
 
   </script>
 
@@ -267,7 +270,7 @@
             <div class="text_desc">
               <input type="text" name="schedule_date" class="text_type1"
                      id="testDatepicker" readonly="readonly"
-                     value=${schedule_show.schedule_date } />
+                     value=${schedule_show.schedule_temdate } />
             </div>
           </li>
           <li>
@@ -304,6 +307,7 @@
             </div>
           </li>
         </ul>
+      </div>
     </form>
   </div>
 </div>

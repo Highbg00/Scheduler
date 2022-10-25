@@ -18,6 +18,8 @@ import org.zerock.scheduler.calendar.SchedulerServiceImpl;
 import org.zerock.scheduler.data.DateData;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -53,22 +55,21 @@ public class CalendarController {
             for(int i = 0; i < Schedule_list.size(); i++){
                 int date = Integer.parseInt(String.valueOf(Schedule_list.get(i).getSchedule_date()).substring(
 String.valueOf(Schedule_list.get(i).getSchedule_date()).length() -
-2,
-String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
+20,
+String.valueOf(Schedule_list.get(i).getSchedule_date()).length() - 18));
                  if(i > 0){
                    int date_before = Integer.parseInt(String.valueOf(Schedule_list.get(i -
 1).getSchedule_date())
                            .substring(String.valueOf(Schedule_list.get(i -
-1).getSchedule_date()).length() - 2,
+1).getSchedule_date()).length() - 20,
                                         String.valueOf(Schedule_list.get(i -
-1).getSchedule_date()).length()));
+1).getSchedule_date()).length()-18));
                    if(date_before == date){
                        j = j + 1;
-                       schedule_data_arr[date][j] = Schedule_list.get(i);
                    } else {
                        j = 0;
-                       schedule_data_arr[date][j] = Schedule_list.get(i);
                    }
+                     schedule_data_arr[date][j] = Schedule_list.get(i);
                  } else {
                      schedule_data_arr[date][j] = Schedule_list.get(i);
                  }
@@ -82,7 +83,7 @@ String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
 
         for (int i = today_info.get("startDay"); i <= today_info.get("endDay"); i++){
                 ScheduleDto[] schedule_data_arr3 = new ScheduleDto[4];
-                schedule_data_arr3 = schedule_data_arr[1];
+                schedule_data_arr3 = schedule_data_arr[i];
 
                 if(i == today_info.get("today")){
                     calendarData = new DateData(String.valueOf(dateData.getYear()),
@@ -129,8 +130,10 @@ String.valueOf(Schedule_list.get(i).getSchedule_date()).length()));
 
     @RequestMapping(value = "/schedule_show", method = RequestMethod.GET)
     public String schedule_show(Model model, HttpServletRequest request, @RequestParam("schedule_idx") int idx, RedirectAttributes rttr){
-        service.get(idx);
-        model.addAttribute("schedule_show",service.get(idx));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        ScheduleDto dto = service.get(idx);
+        dto.setSchedule_temdate(simpleDateFormat.format(dto.getSchedule_date()));
+        model.addAttribute("schedule_show",dto);
         return null;
     }
 

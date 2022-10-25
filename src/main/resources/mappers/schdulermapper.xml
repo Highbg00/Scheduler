@@ -26,7 +26,7 @@
     </select>
 
     <select id="get" resultType="org.zerock.scheduler.calendar.ScheduleDto">
-        <![CDATA[select  * from scheduler where schedule_idx = #{schedule_id}]]>
+        <![CDATA[select  * from scheduler where schedule_idx = #{schedule_idx}]]>
     </select>
 
     <update id="update">
@@ -37,10 +37,10 @@
             schedule_date = #{schedule_date},
             schedule_share = #{schedule_share},
             schedule_mycolor = #{schedule_mycolor}
-        where schedule_idx = #{schedule_id}
+        where schedule_idx = #{schedule_idx}
     </update>
 
     <delete id="delete">
-        delete from scheduler where schedule_idx=#{schedule_id}
+        delete from scheduler where schedule_idx=#{schedule_idx}
     </delete>
 </mapper>
