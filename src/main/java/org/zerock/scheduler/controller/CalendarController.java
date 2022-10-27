@@ -1,24 +1,25 @@
 package org.zerock.scheduler.controller;
 
 import lombok.extern.log4j.Log4j2;
-import org.apache.ibatis.session.SqlSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.scheduler.calendar.ScheduleDto;
-import org.zerock.scheduler.calendar.SchedulerService;
+
 import org.zerock.scheduler.calendar.SchedulerServiceImpl;
 import org.zerock.scheduler.data.DateData;
+import org.zerock.scheduler.member.UserDTO;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,7 +35,7 @@ public class CalendarController {
     private static final Logger logger = LoggerFactory.getLogger(CalendarController.class);
 
     @RequestMapping(value = "calendar.do", method = RequestMethod.GET)
-    public String calendar(Model model, HttpServletRequest request, DateData dateData){
+    public String calendar(Model model, HttpServletRequest request, DateData dateData, HttpSession session){
 
         Calendar cal = Calendar.getInstance();
         DateData calendarData;
@@ -46,7 +47,7 @@ public class CalendarController {
 
         Map<String, Integer> today_info = dateData.today_info(dateData);
         List<DateData> dateList = new ArrayList<DateData>();
-
+        dateData.setId(((UserDTO)session.getAttribute("loginInfo")).getId());
         ArrayList<ScheduleDto> Schedule_list = service.schedule_list(dateData);
 
         ScheduleDto[][] schedule_data_arr = new ScheduleDto[32][4];

@@ -17,6 +17,7 @@ public class DateData {
     String date = "";
     String value = "";
 
+    String id= "";
     String db_startDate = "";
     String db_endDate = "";
     ScheduleDto[] schedule_data_arr = new ScheduleDto[4];

@@ -29,6 +29,9 @@
             $("#popbutton").click(function(){
                 $('div.normal_move_board_modal').modal();
             })
+            $("#close").click(function(){
+                $('div.normal_move_board_modal').modal('hide');
+            })
         })
     </script>
     <style TYPE="text/css">
@@ -695,7 +698,7 @@
         }
     </script>
     <div class="top" style="">
-        <div class="close">x</div>
+        <div class="close" id="close">x</div>
         <div class="subject">Add Schedule</div>
     </div>
 
@@ -706,7 +709,7 @@
             <input type="hidden" name="year" value="${today_info.search_year}" />
             <input type="hidden" name="month"
                    value="${today_info.search_month-1}" />
-
+            <input type="hidden" name="id" value="${loginInfo.id}" />
             <div class="contents">
                 <ul>
                     <li>

@@ -10,7 +10,7 @@ import java.util.Date;
 @ToString
 public class ScheduleDto {
     int schedule_idx, schedule_num;
-    String schedule_subject, schedule_desc, schedule_share, schedule_mycolor, schedule_temdate;
+    String schedule_subject, schedule_desc, schedule_share, schedule_mycolor, schedule_temdate, id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date schedule_date;
