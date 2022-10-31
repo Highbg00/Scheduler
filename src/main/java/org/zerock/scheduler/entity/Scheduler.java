@@ -32,9 +32,6 @@ public class Scheduler extends BaseEntity{
     @Column
     private Date schedule_date;
 
-    @Column(length = 2)
-    private String schedule_share;
-
     @Column(length = 10)
     private String schedule_mycolor;
 

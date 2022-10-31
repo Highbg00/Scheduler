@@ -400,11 +400,6 @@
             border-radius: 7px;
         }
 
-        .radio {
-            margin-top: 12px;
-            border: 1px solid #A0D9E2;
-        }
-
         .colorbox {
             margin-top: 5px;
             border: 1px solid #A0D9E2;
@@ -736,11 +731,6 @@
                         <div class="text_area_desc">
                             <textarea name="schedule_desc" class="textarea_type1" rows="5"></textarea>
                         </div>
-                    </li>
-                    <li>
-                        <div class="text_subject">공유 :</div> <input class="radio"
-                                                                    type="radio" name="schedule_share" value="1" checked="checked">공개
-                        <input type="radio" name="schedule_share" value="2">비공개
                     </li>
                     <li>
                         <div class="text_subject">색상 :</div> <input class="colorbox"

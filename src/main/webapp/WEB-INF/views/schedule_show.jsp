@@ -191,10 +191,6 @@
       border-radius: 7px;
     }
 
-    .radio {
-      margin-top: 9px;
-      border: 1px solid #A0D9E2;
-    }
 
     .colorbox {
       border: 1px solid #A0D9E2;
@@ -226,19 +222,6 @@
     });
   </script>
 
-  <!-- share 값에 따라 공개, 비공개 체크 상태 -->
-  <script type="text/javascript">
-
-    if(${schedule_show.schedule_share}=="1")
-    {
-      document.getElementById("first_radio").checked = true;
-    }
-    else
-    {
-      document.getElementById("second_radio").checked = true;
-    }
-
-  </script>
 
   <div class="top">
     <!-- <div class="close">x</div> -->
@@ -286,12 +269,6 @@
             <div class="text_area_desc">
               <textarea name="schedule_desc" class="textarea_type1" rows="5">${schedule_show.schedule_desc}</textarea>
             </div>
-          </li>
-          <li>
-            <div class="text_subject">공유 :</div> <input class="radio"
-                                                        type="radio" name="schedule_share" id="first_radio" value="1"
-                                                        checked="checked"/>공개 <input type="radio"
-                                                                                     name="schedule_share" id="second_radio" value="2"/>비공개
           </li>
           <li>
             <div class="text_subject">색상 :</div> <input class="colorbox"
