@@ -1,8 +1,6 @@
 package org.zerock.scheduler.controller;
 
 import lombok.extern.log4j.Log4j2;
-
-
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.zerock.scheduler.common.CommonService;
-import org.zerock.scheduler.member.UserDTO;
 import org.zerock.scheduler.member.MemberServiceImpl;
+import org.zerock.scheduler.member.UserDTO;
 
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
@@ -33,7 +31,7 @@ public class MainController {
 
         log.info("list.....");
 
-        return "/scheduler/main";
+        return "main";
     }
 
     @GetMapping ("/naverLogin")
@@ -135,7 +133,7 @@ public class MainController {
 //			}
 //		}
 
-        return "redirect:/";
+        return "redirect:/calendar.do";
     }
 
     // 카카오 로그인 요청
@@ -247,7 +245,7 @@ public class MainController {
 //		    }
 //		}
 
-        return "redirect:/";
+        return "redirect:/calendar.do";
     }
 
 }
