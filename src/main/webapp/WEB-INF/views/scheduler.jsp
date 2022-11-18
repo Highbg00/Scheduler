@@ -547,7 +547,6 @@
         var subject;
         var desc;
         var date;
-        var share;
         var mycolor;
     </script>
 </head>

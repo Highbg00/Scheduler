@@ -50,6 +50,7 @@ public class CalendarController {
         dateData.setId(((UserDTO)session.getAttribute("loginInfo")).getId());
         ArrayList<ScheduleDto> Schedule_list = service.schedule_list(dateData);
 
+        //0부터 31일까지의 날짜 배열 생성, 행이 4인 이유는 스케쥴이 4개까지만 들어가기 때문.
         ScheduleDto[][] schedule_data_arr = new ScheduleDto[32][4];
         if(Schedule_list.isEmpty() != true){
             int j = 0;
